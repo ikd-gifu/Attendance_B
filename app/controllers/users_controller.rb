@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @worked_sum = @attendances.where.not(started_at: nil).count
+    @user = User.find_by(id: params[:id])
   end
 
   def new
@@ -47,6 +48,7 @@ class UsersController < ApplicationController
   end
 
   def edit_basic_info
+    # @user = User.find_by(id: params[:id])
   end
 
   def update_basic_info
