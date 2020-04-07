@@ -42,6 +42,8 @@ ja:
       long: "%Y年%m月%d日(%a)"
       middle: "%Y年%m月"
       short: "%-m/%-d"
+      hour: "%H"
+      minute: "%M"
     month_names:
     - 
     - 1月
@@ -205,4 +207,6 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
       time: "%H：%M"
+      hour: "%H"
+      minute: "%M"
     pm: 午後
