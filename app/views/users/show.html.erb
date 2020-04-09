@@ -24,11 +24,11 @@
 </div>
 
 <div class="btn-users-show">
-  <%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-success" %>
+  <%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-default active" %>
 </div>
 
 <div>
-  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
+  <table class="table table-bordered table-condensed table-striped" id="table-attendances">
     <thead>
       <tr>
         <th rowspan="2">日付</th>
@@ -56,7 +56,7 @@
           <td><%= l(day.started_at, format: :minute) if day.started_at.present? %></td>
           <td>
             <% if btn_text = attendance_state(day) %>
-              <%= link_to "#{btn_text}登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+              <%= link_to "#{btn_text}登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-default active btn-attendance" %>
             <% end %>
           </td>
           <td><%= l(day.finished_at, format: :hour) if day.finished_at.present? %></td>
