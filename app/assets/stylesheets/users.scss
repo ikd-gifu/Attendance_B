@@ -48,11 +48,22 @@
 #table-users {
   td {
     vertical-align: middle;
+    text-align: center;
   }  
 }
 
 .title {
   border-bottom:2px solid #dee7ec;
+}
+
+#table-attendances_2 {
+  height: 5em;
+}
+
+/* 勤怠編集画面 */
+.btn-basic-info_2 {
+  margin: 5px 0;
+  width: 20%;
 }
 
 /* 基本情報編集モーダルウインドウ */
