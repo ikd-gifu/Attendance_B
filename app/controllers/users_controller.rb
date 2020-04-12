@@ -9,10 +9,10 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page])
     # @user = User.find(params[:user_id]) if @user.blank?
-    unless current_user?(@user) || current_user.admin?
-      flash[:danger] = "編集権限がありません_2。"
-      redirect_to(root_url)
-    end
+    # unless current_user?(@user) || current_user.admin?
+    #   flash[:danger] = "編集権限がありません_2。"
+    #   redirect_to(root_url)
+    # end
   end
 
   def show
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   end
   
   def admin_or_correct_user
-    @user = User.find(params[:user_id]) if @user.blank?
+    # @user = User.find(params[:user_id]) if @user.blank?
     unless current_user?(@user) || current_user.admin?
       flash[:danger] = "編集権限がありません_1。"
       redirect_to(root_url)
