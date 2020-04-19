@@ -18,7 +18,9 @@ class Attendance < ApplicationRecord
   end
   
   def started_at_is_invalid_without_a_finished_at
+     #今日の日付と取得された日付が一致するか
     unless Date.current == worked_on
+    #今日の日付と同じ日付の場合出社時間のみの場合エラー出力
       errors.add(:finished_at, "が必要です") if finished_at.blank? && started_at.present?
     end
   end
