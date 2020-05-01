@@ -7,7 +7,13 @@ class UsersController < ApplicationController
   before_action :set_one_month, only: :show
 
   def index
-    @users = User.paginate(page: params[:page])
+    # @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).search(params[:search])
+    if params[:search].present?
+      @text = "検索結果"
+    else
+      @text = "ユーザー一覧"
+    end
   end
 
   def show
@@ -69,10 +75,13 @@ class UsersController < ApplicationController
     end  
   end
 
+  def search
+  end
+
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :department, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :department, :password, :password_confirmation, :search)
     end
 
     def basic_info_params
