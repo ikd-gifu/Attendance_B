@@ -14,4 +14,13 @@ module AttendancesHelper
   def working_times(start, finish)
     format("%.2f", (((finish - start) / 60) / 60.0))
   end
+  
+  #15分単位で表示する
+  def format_hour(time)
+    format("%2d",  time.hour)
+  end
+
+  def format_min(time)
+    format("%2d", (time.min / 15) * 15)
+  end
 end
