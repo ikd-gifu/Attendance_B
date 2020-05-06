@@ -12,7 +12,8 @@ module AttendancesHelper
 
   # 出勤時間と退勤時間を受け取り、在社時間を計算して返します。
   def working_times(start, finish)
-    format("%.2f", (((finish - start) / 60) / 60.0))
+    #15分単位で勤務時間を計算し、小数点以下2桁で表示する。rounding gemを利用
+    format("%.2f", (((finish.floor_to(15.minutes) - start.floor_to(15.minutes)) / 60) / 60.0))
   end
   
   #15分単位で表示する
